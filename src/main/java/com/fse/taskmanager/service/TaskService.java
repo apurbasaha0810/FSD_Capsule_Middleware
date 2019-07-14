@@ -1,8 +1,8 @@
-package com.fse.tasktracker.service;
+package com.fse.taskmanager.service;
 
 import java.util.List;
 
-import com.fse.tasktracker.model.Task;
+import com.fse.taskmanager.model.Task;
 
 public interface TaskService {
 

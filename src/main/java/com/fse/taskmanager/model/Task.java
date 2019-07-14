@@ -1,4 +1,4 @@
-package com.fse.tasktracker.model;
+package com.fse.taskmanager.model;
 
 import java.text.ParseException;
 import java.util.Date;

@@ -1,10 +1,10 @@
-package com.fse.tasktracker.controller;
+package com.fse.taskmanager.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.fse.tasktracker.model.Task;
-import com.fse.tasktracker.service.TaskService;
+import com.fse.taskmanager.model.Task;
+import com.fse.taskmanager.service.TaskService;
 
 import java.util.List;
 

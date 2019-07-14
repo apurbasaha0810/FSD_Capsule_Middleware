@@ -1,11 +1,11 @@
-package com.fse.tasktracker.service.impl;
+package com.fse.taskmanager.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.fse.tasktracker.model.Task;
-import com.fse.tasktracker.service.TaskService;
+import com.fse.taskmanager.model.Task;
+import com.fse.taskmanager.service.TaskService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

@@ -1,4 +1,4 @@
-package com.fse.tasktracker.Exception;
+package com.fse.taskmanager.Exception;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
