@@ -27,10 +27,6 @@ import javax.validation.constraints.Null;
                 query = "CALL taskSpecificDetails(?)",
                 resultClass = Task.class),
         @NamedNativeQuery(
-                name = "callDeleteSpecificTask",
-                query = "CALL deleteSpecificTask(?)",
-                resultClass = Task.class),
-        @NamedNativeQuery(
                 name = "callUpdateSpecificTask",
                 query = "CALL updateSpecificTask(?,?,?,?,?,?)",
                 resultClass = Task.class),
@@ -73,6 +69,8 @@ public class Task {
     @Null
     private String parent_task;
 
+    @Column
+    private String finished;
 
     public int getTask_id() {
         return task_id;
@@ -131,10 +129,5 @@ public class Task {
     public void setFinished(String finished) {
         this.finished = finished;
     }
-
-    @Column
-
-    private String finished;
-
 
 }

@@ -74,19 +74,6 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 	@Override
-	public Task deleteTask(int id) {
-		Task taskDetails=null;
-		try{
-			taskDetails = manager.createNamedQuery("callDeleteSpecificTask", Task.class)
-					.setParameter(1, id).getSingleResult();
-			return taskDetails;}
-		catch(Exception ex){
-			logger.error("Issue in TaskServiceImpl: "+ex.getMessage());
-		}
-		return taskDetails;
-	}
-
-	@Override
 	public Task createTask(Task task) {
 		Task taskDetails=null;
 		try{
