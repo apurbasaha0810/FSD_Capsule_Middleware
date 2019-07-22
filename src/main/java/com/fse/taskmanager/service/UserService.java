@@ -8,5 +8,7 @@ public interface UserService {
 
 	public User createUser(User user);
 	
-	public List<User> getUserDetails();
+	public List<User> getUserDetails(String sortBy);
+	
+	public User deleteUser(int employeeId);
 }

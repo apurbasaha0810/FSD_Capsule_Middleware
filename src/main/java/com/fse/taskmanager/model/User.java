@@ -15,9 +15,13 @@ import javax.persistence.Table;
 			query = "CALL createUser(?,?,?)",
 			resultClass = User.class),
 	@NamedNativeQuery(
-            name = "callGetAllUsers",
-            query = "CALL userDetails()",
-            resultClass = User.class),
+			name = "callGetAllUsers",
+			query = "CALL userDetails(?)",
+			resultClass = User.class),
+	@NamedNativeQuery(
+			name = "callDeleteUser",
+			query = "CALL deleteUser(?)",
+			resultClass = User.class),
 })
 
 @Entity
@@ -81,5 +85,5 @@ public class User {
 	public void setEmployee_id(int employee_id) {
 		this.employee_id = employee_id;
 	}
-	
+
 }

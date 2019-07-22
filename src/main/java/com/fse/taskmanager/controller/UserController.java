@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +28,13 @@ public class UserController {
 		return userService.createUser(user);
 	}
 	
-	@GetMapping
-	public List<User> findAll(){
-		return userService.getUserDetails();
+	@GetMapping(path ={"/{sortBy}"})
+	public List<User> findAll(@PathVariable("sortBy") String sortBy){
+		return userService.getUserDetails(sortBy);
+	}
+	
+	@DeleteMapping(path ={"deleteUser/{employeeId}"})
+	public User deleteUser(@PathVariable("employeeId") int employeeId){
+		return userService.deleteUser(employeeId);
 	}
 }

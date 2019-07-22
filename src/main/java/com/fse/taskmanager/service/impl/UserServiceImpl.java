@@ -39,10 +39,11 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<User> getUserDetails() {
+	public List<User> getUserDetails(String sortBy) {
 		List<User> userDetails=null;
 		try{
-			userDetails = manager.createNamedQuery("callGetAllUsers", User.class).getResultList();
+			logger.info("sortBy ::: "+sortBy);
+			userDetails = manager.createNamedQuery("callGetAllUsers", User.class).setParameter(1, sortBy).getResultList();
 			logger.info("userDetails size::: "+userDetails.size());
 			return userDetails;
 		}
@@ -50,5 +51,18 @@ public class UserServiceImpl implements UserService{
 			logger.error("Issue while retrieveing all user details in UserServiceImpl: "+ex.getMessage());
 		}
 		return userDetails;
+	}
+
+	@Override
+	public User deleteUser(int employeeId) {
+		User deleteUser = null;
+		try{
+			deleteUser = manager.createNamedQuery("callDeleteUser", User.class).setParameter(1, employeeId).getSingleResult();
+			return deleteUser;
+		}
+		catch(Exception ex){
+			logger.error("Issue while deleting user details in UserServiceImpl: "+ex.getMessage());
+		}
+		return deleteUser;
 	}
 }

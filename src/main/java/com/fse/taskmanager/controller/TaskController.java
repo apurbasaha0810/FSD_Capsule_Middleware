@@ -17,28 +17,27 @@ public class TaskController {
 	private TaskService taskService;
 
 	@PostMapping
-	public Task create(@RequestBody Task task){
+	public Task create(@RequestBody Task task) {
 		return taskService.createTask(task);
 	}
 
 	@GetMapping(path = {"/{id}"})
-	public Task findOne(@PathVariable("id") int id){
+	public Task findOne(@PathVariable("id") int id) {
 		return taskService.findByTaskId(id);
 	}
 
 	@PutMapping(path = {"/{id}"})
-	public Task update(@PathVariable("id") int id, @RequestBody Task task){
+	public Task update(@PathVariable("id") int id, @RequestBody Task task) {
 		return taskService.updateTask(task);
 	}
 
 	@DeleteMapping(path ={"finish/{id}"})
-	public Task finishTask (@PathVariable("id") int id)
-	{
+	public Task finishTask (@PathVariable("id") int id)	{
 		return taskService.finishTask(id);
 	}
 
 	@GetMapping
-	public List<Task> findAll(){
+	public List<Task> findAll() {
 		return taskService.getTaskdetails();
 	}
 }
