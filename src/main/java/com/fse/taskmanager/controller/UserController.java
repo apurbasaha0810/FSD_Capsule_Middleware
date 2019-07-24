@@ -28,9 +28,9 @@ public class UserController {
 		return userService.createUser(user);
 	}
 	
-	@GetMapping(path ={"/{sortBy}"})
-	public List<User> findAll(@PathVariable("sortBy") String sortBy){
-		return userService.getUserDetails(sortBy);
+	@GetMapping(path ={"/{sortBy}/{projectAssigned}"})
+	public List<User> findAll(@PathVariable("sortBy") String sortBy, @PathVariable("projectAssigned") String projectAssigned){
+		return userService.getUserDetails(sortBy, projectAssigned);
 	}
 	
 	@DeleteMapping(path ={"deleteUser/{employeeId}"})

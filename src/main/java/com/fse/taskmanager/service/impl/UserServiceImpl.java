@@ -39,11 +39,15 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<User> getUserDetails(String sortBy) {
+	public List<User> getUserDetails(String sortBy, String projectAssigned) {
 		List<User> userDetails=null;
 		try{
 			logger.info("sortBy ::: "+sortBy);
-			userDetails = manager.createNamedQuery("callGetAllUsers", User.class).setParameter(1, sortBy).getResultList();
+			logger.info("projectAssigned ::: "+projectAssigned);
+			userDetails = manager.createNamedQuery("callGetAllUsers", User.class)
+					.setParameter(1, sortBy)
+					.setParameter(2, projectAssigned)
+					.getResultList();
 			logger.info("userDetails size::: "+userDetails.size());
 			return userDetails;
 		}
