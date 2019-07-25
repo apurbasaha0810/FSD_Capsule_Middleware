@@ -78,12 +78,14 @@ public class TaskServiceImpl implements TaskService {
 		Task taskDetails=null;
 		try{
 			logger.debug("Task Details ::: "+task.getPriority() +" ::: "+ task.getStart_date() +" ::: "+ task.getEnd_date());
-			taskDetails = manager.createNamedQuery("callInsertSpecificTask", Task.class)
+			taskDetails = manager.createNamedQuery("callAddTask", Task.class)
 					.setParameter(1, task.getTask())
 					.setParameter(2, task.getStart_date())
 					.setParameter(3, task.getEnd_date())
 					.setParameter(4, task.getPriority())
-					.setParameter(5, task.getParent_task())
+					.setParameter(5, task.getProject_id())
+					.setParameter(6, task.getParent_id())
+					.setParameter(7, task.getUser_id())
 					.getSingleResult();
 			return taskDetails;
 		}

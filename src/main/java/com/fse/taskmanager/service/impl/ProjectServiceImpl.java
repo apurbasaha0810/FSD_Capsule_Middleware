@@ -73,4 +73,19 @@ public class ProjectServiceImpl implements ProjectService{
 		}
 		return projectDetails;
 	}
+	
+	@Override
+	public List<Project> getAllActiveProjects() {
+		List<Project> projectDetails=null;
+		try{
+			projectDetails = manager.createNamedQuery("callGetAllActiveProjects", Project.class)
+					.getResultList();
+			logger.info("projectDetails size::: "+projectDetails.size());
+			return projectDetails;
+		}
+		catch(Exception ex){
+			logger.error("Issue while retrieveing all active project details in ProjectServiceImpl: "+ex.getMessage());
+		}
+		return projectDetails;
+	}
 }

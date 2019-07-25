@@ -23,6 +23,10 @@ import javax.persistence.Table;
 	@NamedNativeQuery(
 			name = "callUpdateProjectStatus",
 			query = "CALL updateProjectStatus(?,?)",
+			resultClass = Project.class),
+	@NamedNativeQuery(
+			name = "callGetAllActiveProjects",
+			query = "CALL getAllActiveProjects()",
 			resultClass = Project.class)
 })
 

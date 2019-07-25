@@ -11,4 +11,6 @@ public interface ProjectService {
 	public Project addProject(Project project);
 	
 	public Project updateProjectStatus(long projectId, String status);
+	
+	public List<Project> getAllActiveProjects();
 }

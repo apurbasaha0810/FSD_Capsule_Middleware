@@ -41,4 +41,9 @@ public class ProjectController {
     public Project activateProject(@PathVariable("projectId") long projectId) {
         return projectService.updateProjectStatus(projectId, "ACTIVE");
     }
+    
+    @GetMapping(path ={"/getAllActiveProjects"})
+	public List<Project> getAllActiveProjects() {
+		return projectService.getAllActiveProjects();
+	}
 }
