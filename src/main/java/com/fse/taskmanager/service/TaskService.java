@@ -2,17 +2,20 @@ package com.fse.taskmanager.service;
 
 import java.util.List;
 
+import com.fse.taskmanager.model.ParentTask;
 import com.fse.taskmanager.model.Task;
 
 public interface TaskService {
 
-    Task finishTask(int id);
+	public Task finishTask(int id);
 
-    List<Task> getTaskdetails();
+	public List<Task> getTaskdetails();
 
-    Task findByTaskId(int id);
+	public Task findByTaskId(int id);
 
-    Task updateTask(Task task);
+	public Task updateTask(Task task);
 
-    Task createTask(Task task);
+	public Task createTask(Task task);
+
+	public List<ParentTask> getAllParentTasks();
 }

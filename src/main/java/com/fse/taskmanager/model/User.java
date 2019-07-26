@@ -16,7 +16,7 @@ import javax.persistence.Table;
 			resultClass = User.class),
 	@NamedNativeQuery(
 			name = "callGetAllUsers",
-			query = "CALL getAllUserDetails(?,?)",
+			query = "CALL getAllUserDetails(?,?,?)",
 			resultClass = User.class),
 	@NamedNativeQuery(
 			name = "callDeleteUser",

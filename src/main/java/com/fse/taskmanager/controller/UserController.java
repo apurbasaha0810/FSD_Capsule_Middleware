@@ -28,9 +28,10 @@ public class UserController {
 		return userService.createUser(user);
 	}
 	
-	@GetMapping(path ={"/{sortBy}/{projectAssigned}"})
-	public List<User> findAll(@PathVariable("sortBy") String sortBy, @PathVariable("projectAssigned") String projectAssigned){
-		return userService.getUserDetails(sortBy, projectAssigned);
+	@GetMapping(path ={"/{sortBy}/{projectAssigned}/{taskAssigned}"})
+	public List<User> findAll(@PathVariable("sortBy") String sortBy, @PathVariable("projectAssigned") String projectAssigned, 
+			@PathVariable("taskAssigned") String taskAssigned){
+		return userService.getUserDetails(sortBy, projectAssigned, taskAssigned);
 	}
 	
 	@DeleteMapping(path ={"deleteUser/{employeeId}"})

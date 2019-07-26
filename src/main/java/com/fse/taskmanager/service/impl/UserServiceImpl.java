@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<User> getUserDetails(String sortBy, String projectAssigned) {
+	public List<User> getUserDetails(String sortBy, String projectAssigned, String taskAssigned) {
 		List<User> userDetails=null;
 		try{
 			logger.info("sortBy ::: "+sortBy);
@@ -47,6 +47,7 @@ public class UserServiceImpl implements UserService{
 			userDetails = manager.createNamedQuery("callGetAllUsers", User.class)
 					.setParameter(1, sortBy)
 					.setParameter(2, projectAssigned)
+					.setParameter(3, taskAssigned)
 					.getResultList();
 			logger.info("userDetails size::: "+userDetails.size());
 			return userDetails;

@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.fse.taskmanager.model.ParentTask;
 import com.fse.taskmanager.model.Task;
 import com.fse.taskmanager.service.TaskService;
 
@@ -36,9 +37,10 @@ public class TaskServiceImpl implements TaskService {
 		List<Task> taskDetails=null;
 		try{
 			taskDetails = manager.createNamedQuery("callGetAllTasks", Task.class).getResultList();
-			return taskDetails;}
+			return taskDetails;
+		}
 		catch(Exception ex){
-			logger.error("Issue in TaskServiceImpl: "+ex.getMessage());
+			logger.error("Issue while retrieveing all Task details in TaskServiceImpl: "+ex.getMessage());
 		}
 		return taskDetails;
 	}
@@ -68,7 +70,7 @@ public class TaskServiceImpl implements TaskService {
 				.getSingleResult();
 		return taskDetails;}
 		catch(Exception ex){
-			logger.error("Issue in TaskServiceImpl: "+ex.getMessage());
+			logger.error("Issue while updating Task details in TaskServiceImpl: "+ex.getMessage());
 		}
 		return taskDetails;
 	}
@@ -90,8 +92,21 @@ public class TaskServiceImpl implements TaskService {
 			return taskDetails;
 		}
 		catch(Exception ex){
-			logger.error("Issue in TaskServiceImpl: "+ex.getMessage());
+			logger.error("Issue while creating Task in TaskServiceImpl: "+ex.getMessage());
 		}
 		return taskDetails;
+	}
+
+	@Override
+	public List<ParentTask> getAllParentTasks(){
+		List<ParentTask> parentTaskList=null;
+		try{
+			parentTaskList = manager.createNamedQuery("callGetAllParentTasks", ParentTask.class).getResultList();
+			return parentTaskList;
+		}
+		catch(Exception ex){
+			logger.error("Issue while retrieveing all Parent Tasks in TaskServiceImpl: "+ex.getMessage());
+		}
+		return parentTaskList;
 	}
 }

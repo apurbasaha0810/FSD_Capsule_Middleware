@@ -31,7 +31,7 @@ import javax.persistence.Table;
 	@NamedNativeQuery(
 			name = "callAddTask",
 			query = "CALL addTask(?,?,?,?,?,?,?)",
-			resultClass = Task.class)
+			resultClass = Task.class),
 })
 
 @Entity
