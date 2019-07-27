@@ -2,6 +2,8 @@ package com.fse.taskmanager.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,6 +26,8 @@ public class TaskController {
 
 	@Autowired
 	private TaskService taskService;
+	
+	Logger logger= LoggerFactory.getLogger(TaskController.class);
 
 	@PostMapping
 	public Task create(@RequestBody Task task) {
@@ -45,9 +49,10 @@ public class TaskController {
 		return taskService.finishTask(id);
 	}
 
-	@GetMapping()
-	public List<Task> findAll() {
-		return taskService.getTaskdetails();
+	@GetMapping(path ={"/sortBy/{sortBy}"})
+	public List<Task> findAll (@PathVariable("sortBy") String sortBy) {
+		logger.info("sortBy ::: "+sortBy);
+		return taskService.getTaskdetails(sortBy);
 	}
 	
 	@GetMapping(path = {"/getAllParentTasks"})

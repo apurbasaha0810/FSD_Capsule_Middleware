@@ -9,7 +9,7 @@ public interface TaskService {
 
 	public Task finishTask(int id);
 
-	public List<Task> getTaskdetails();
+	public List<Task> getTaskdetails(String sortBy);
 
 	public Task findByTaskId(int id);
 

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @NamedNativeQueries({
 	@NamedNativeQuery(
 			name = "callGetAllTasks",
-			query = "CALL taskDetails()",
+			query = "CALL taskDetails(?)",
 			resultClass = Task.class),
 	@NamedNativeQuery(
 			name = "callFinishTask",

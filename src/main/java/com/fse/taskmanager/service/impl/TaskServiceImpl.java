@@ -33,10 +33,13 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 	@Override
-	public List<Task> getTaskdetails() {
+	public List<Task> getTaskdetails(String sortBy) {
 		List<Task> taskDetails=null;
+		logger.info("sortBy ::: "+sortBy);
 		try{
-			taskDetails = manager.createNamedQuery("callGetAllTasks", Task.class).getResultList();
+			taskDetails = manager.createNamedQuery("callGetAllTasks", Task.class)
+					.setParameter(1, sortBy)
+					.getResultList();
 			return taskDetails;
 		}
 		catch(Exception ex){
@@ -49,9 +52,11 @@ public class TaskServiceImpl implements TaskService {
 	public Task findByTaskId(int id) {
 		Task taskDetails=null;
 		try{
-			taskDetails = manager.createNamedQuery("callSpecificTask", Task.class).setParameter(1, id).getSingleResult();
-			return taskDetails;}
-
+			taskDetails = manager.createNamedQuery("callSpecificTask", Task.class)
+					.setParameter(1, id)
+					.getSingleResult();
+			return taskDetails;
+		}
 		catch(Exception ex){
 			logger.error("Issue in TaskServiceImpl: "+ex.getMessage());
 		}
